@@ -10,9 +10,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AndroidERestaurant">
         <activity
-            android:name=".StartersActivity"
-            android:exported="false" />
-        <activity
             android:name=".HomeActivity"
             android:exported="true">
             <intent-filter>
