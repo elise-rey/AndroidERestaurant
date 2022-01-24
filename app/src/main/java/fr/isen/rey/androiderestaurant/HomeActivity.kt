@@ -3,6 +3,7 @@ package fr.isen.rey.androiderestaurant
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 //import android.widget.Toast
 import fr.isen.rey.androiderestaurant.databinding.ActivityHomeBinding
 
@@ -15,6 +16,13 @@ class HomeActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         listenClick()
+
+        Log.d("life cycle", "HomeActivity onCreate")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.d("life cycle", "HomeActivity onDestroy")
     }
 
     private fun listenClick() {
@@ -24,7 +32,7 @@ class HomeActivity : AppCompatActivity() {
         }
         binding.main.setOnClickListener {
             //Toast.makeText(applicationContext, R.string.toastMain, Toast.LENGTH_SHORT).show()
-            showList(LunchType.COURSE)
+            showList(LunchType.MAIN)
         }
         binding.dessert.setOnClickListener {
             //Toast.makeText(applicationContext, R.string.toastDessert, Toast.LENGTH_SHORT).show()
