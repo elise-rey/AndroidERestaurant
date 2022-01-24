@@ -1,12 +1,12 @@
 <resources>
     <string name="app_name">AndroidERestaurant</string>
     <string name="welcome">Bienvenue chez Android e-Restaurant</string>
-    <string name="starters">Entrées</string>
-    <string name="courses">Plats</string>
-    <string name="desserts">Desserts</string>
+    <string name="starter">Entrées</string>
+    <string name="main">Plats</string>
+    <string name="dessert">Desserts</string>
 
-    <string name="toastStarters">Ouverture des entrées...</string>
-    <string name="toastCourses">Ouverture des plats...</string>
-    <string name="toastDesserts">Ouverture des desserts...</string>
+    <string name="toastStarter">Ouverture des entrées...</string>
+    <string name="toastMain">Ouverture des plats...</string>
+    <string name="toastDessert">Ouverture des desserts...</string>
 
 </resources>

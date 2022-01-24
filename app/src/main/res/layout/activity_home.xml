@@ -7,12 +7,12 @@
     tools:context=".HomeActivity">
 
     <Button
-        android:id="@+id/starters"
+        android:id="@+id/starter"
         style="@style/Widget.Material3.Button.TextButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/poppins"
-        android:text="@string/starters"
+        android:text="@string/starter"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textColor="#000000"
@@ -26,12 +26,12 @@
         app:strokeColor="#000000" />
 
     <Button
-        android:id="@+id/courses"
+        android:id="@+id/main"
         style="@style/Widget.Material3.Button.TextButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/poppins"
-        android:text="@string/courses"
+        android:text="@string/main"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textColor="#000000"
@@ -45,12 +45,12 @@
         app:strokeColor="#000000" />
 
     <Button
-        android:id="@+id/desserts"
+        android:id="@+id/dessert"
         style="@style/Widget.Material3.Button.TextButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/poppins"
-        android:text="@string/desserts"
+        android:text="@string/dessert"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textColor="#000000"
         android:textSize="20sp"
