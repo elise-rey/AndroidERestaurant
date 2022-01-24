@@ -15,14 +15,18 @@ class HomeActivity : AppCompatActivity() {
         listenClick()
     }
     private fun listenClick() {
-        binding.starters.setOnClickListener() {
-            Toast.makeText(applicationContext, "Ouverture des entrées...", Toast.LENGTH_SHORT).show()
+        // Toasts
+        binding.starters.setOnClickListener {
+            Toast.makeText(applicationContext, R.string.toastStarters, Toast.LENGTH_SHORT).show()
         }
-        binding.courses.setOnClickListener() {
-            Toast.makeText(applicationContext, "Ouverture des plats...", Toast.LENGTH_SHORT).show()
+        binding.courses.setOnClickListener {
+            Toast.makeText(applicationContext, R.string.toastCourses, Toast.LENGTH_SHORT).show()
         }
-        binding.desserts.setOnClickListener() {
-            Toast.makeText(applicationContext, "Ouverture des desserts...", Toast.LENGTH_SHORT).show()
+        binding.desserts.setOnClickListener {
+            Toast.makeText(applicationContext, R.string.toastDesserts, Toast.LENGTH_SHORT).show()
         }
+
+        // Redirection
+
     }
 }

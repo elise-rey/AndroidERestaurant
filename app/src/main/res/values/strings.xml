@@ -4,4 +4,9 @@
     <string name="starters">Entrées</string>
     <string name="courses">Plats</string>
     <string name="desserts">Desserts</string>
+
+    <string name="toastStarters">Ouverture des entrées...</string>
+    <string name="toastCourses">Ouverture des plats...</string>
+    <string name="toastDesserts">Ouverture des desserts...</string>
+
 </resources>
