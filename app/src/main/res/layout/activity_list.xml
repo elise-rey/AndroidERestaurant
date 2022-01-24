@@ -22,6 +22,7 @@
         app:layout_constraintVertical_bias="0.01999998" />
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/listOfFood"
         android:layout_width="393dp"
         android:layout_height="617dp"
         app:layout_constraintBottom_toBottomOf="parent"

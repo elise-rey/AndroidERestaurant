@@ -1,10 +1,12 @@
 package fr.isen.rey.androiderestaurant
 
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Switch
 import fr.isen.rey.androiderestaurant.databinding.ActivityListBinding
+import java.util.*
 
 enum class LunchType {
     STARTER, MAIN, DESSERT;
@@ -40,6 +42,16 @@ class ListActivity : AppCompatActivity() {
     override fun onDestroy() {
         super.onDestroy()
         Log.d("life cycle", "CategoryActivity onDestroy")
+    }
+
+    override fun onRestart() {
+        super.onRestart()
+        Log.d("life cycle", "CategoryActivity onRestart")
+    }
+
+    override fun onStop() {
+        super.onStop()
+        Log.d("life cycle", "CategoryActivity onStop")
     }
 
     fun setupTitle() {

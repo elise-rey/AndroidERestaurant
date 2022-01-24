@@ -25,6 +25,16 @@ class HomeActivity : AppCompatActivity() {
         Log.d("life cycle", "HomeActivity onDestroy")
     }
 
+    override fun onRestart() {
+        super.onRestart()
+        Log.d("life cycle", "HomeActivity onRestart")
+    }
+
+    override fun onStop() {
+        super.onStop()
+        Log.d("life cycle", "HomeActivity onStop")
+    }
+
     private fun listenClick() {
         binding.starter.setOnClickListener {
             //Toast.makeText(applicationContext, R.string.toastStarter, Toast.LENGTH_SHORT).show()startActivity(Intent(this, ListActivity::class.java))
