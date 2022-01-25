@@ -1,5 +1,6 @@
 package fr.isen.rey.androiderestaurant
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -53,12 +54,24 @@ class ListActivity : AppCompatActivity() {
         Log.d("life cycle", "CategoryActivity onStop")
     }
 
-    fun setupTitle() {
+    private fun setupTitle() {
         binding.category.text = getString(LunchType.getResString(currentCategory))
     }
 
-    fun setupList() {
+    private fun setupList() {
         binding.listOfFood.layoutManager = LinearLayoutManager(applicationContext)
-        binding.listOfFood.adapter = ItemAdapter(fakeItems)
+        binding.listOfFood.adapter = ItemAdapter(fakeItems) { selectedItem ->
+            showDetails(selectedItem)
+        }
+    }
+
+    private fun showDetails(item: String) {
+        val intent = Intent(applicationContext, DetailsActivity::class.java)
+        intent.putExtra(SELECTED_ITEM, item)
+        startActivity(intent)
+    }
+
+    companion object {
+        const val SELECTED_ITEM = "SELECTED_ITEM"
     }
 }
