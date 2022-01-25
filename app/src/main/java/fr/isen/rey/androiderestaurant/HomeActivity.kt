@@ -37,15 +37,15 @@ class HomeActivity : AppCompatActivity() {
 
     private fun listenClick() {
         binding.starter.setOnClickListener {
-            //Toast.makeText(applicationContext, R.string.toastStarter, Toast.LENGTH_SHORT).show()startActivity(Intent(this, ListActivity.kt::class.java))
+            //Toast.makeText(this, R.string.toastStarter, Toast.LENGTH_SHORT).show()startActivity(Intent(this, ListActivity.kt::class.java))
             showList(LunchType.STARTER)
         }
         binding.main.setOnClickListener {
-            //Toast.makeText(applicationContext, R.string.toastMain, Toast.LENGTH_SHORT).show()
+            //Toast.makeText(this, R.string.toastMain, Toast.LENGTH_SHORT).show()
             showList(LunchType.MAIN)
         }
         binding.dessert.setOnClickListener {
-            //Toast.makeText(applicationContext, R.string.toastDessert, Toast.LENGTH_SHORT).show()
+            //Toast.makeText(this, R.string.toastDessert, Toast.LENGTH_SHORT).show()
             showList(LunchType.DESSERT)
         }
     }

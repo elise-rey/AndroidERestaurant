@@ -1,11 +1,17 @@
 package fr.isen.rey.androiderestaurant
 
+import android.app.DownloadManager
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.android.volley.Request
+import com.android.volley.toolbox.JsonObjectRequest
+import com.android.volley.toolbox.Volley
 import fr.isen.rey.androiderestaurant.databinding.ActivityListBinding
+import fr.isen.rey.androiderestaurant.network.NetworkConstants
+import org.json.JSONObject
 
 enum class LunchType {
     STARTER, MAIN, DESSERT;
@@ -35,6 +41,7 @@ class ListActivity : AppCompatActivity() {
         currentCategory = intent.getSerializableExtra(HomeActivity.CategoryType) as? LunchType ?: LunchType.STARTER
         setupTitle()
         setupList()
+        makeRequest()
 
         Log.d("life cycle", "CategoryActivity onCreate")
     }
@@ -59,16 +66,34 @@ class ListActivity : AppCompatActivity() {
     }
 
     private fun setupList() {
-        binding.listOfFood.layoutManager = LinearLayoutManager(applicationContext)
+        binding.listOfFood.layoutManager = LinearLayoutManager(this)
         binding.listOfFood.adapter = ItemAdapter(fakeItems) { selectedItem ->
             showDetails(selectedItem)
         }
     }
 
     private fun showDetails(item: String) {
-        val intent = Intent(applicationContext, DetailsActivity::class.java)
+        val intent = Intent(this, DetailsActivity::class.java)
         intent.putExtra(SELECTED_ITEM, item)
         startActivity(intent)
+    }
+
+    private fun makeRequest() {
+        val queue = Volley.newRequestQueue(this)
+        val url = NetworkConstants.BASE_URL + NetworkConstants.MENU
+        val parameters = JSONObject()
+        parameters.put(NetworkConstants.KEY_SHOP, NetworkConstants.SHOP)
+        val request = JsonObjectRequest(Request.Method.POST,
+            url,
+            parameters,
+            {
+                Log.d("debug", "$it")
+            },
+            {
+                Log.d("debug", "$it")
+            }
+        )
+        queue.add(request)
     }
 
     companion object {

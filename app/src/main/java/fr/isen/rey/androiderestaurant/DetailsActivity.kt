@@ -2,6 +2,7 @@ package fr.isen.rey.androiderestaurant
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.android.volley.toolbox.Volley
 import fr.isen.rey.androiderestaurant.databinding.ActivityDetailsBinding
 
 class DetailsActivity : AppCompatActivity() {
@@ -13,5 +14,6 @@ class DetailsActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.item.text = intent.getStringExtra(ListActivity.SELECTED_ITEM)
+
     }
 }
