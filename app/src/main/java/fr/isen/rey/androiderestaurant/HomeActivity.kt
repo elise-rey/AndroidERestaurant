@@ -4,7 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-//import android.widget.Toast
+import android.widget.Toast
 import fr.isen.rey.androiderestaurant.databinding.ActivityHomeBinding
 
 class HomeActivity : AppCompatActivity() {
@@ -37,7 +37,7 @@ class HomeActivity : AppCompatActivity() {
 
     private fun listenClick() {
         binding.starter.setOnClickListener {
-            //Toast.makeText(applicationContext, R.string.toastStarter, Toast.LENGTH_SHORT).show()startActivity(Intent(this, ListActivity::class.java))
+            //Toast.makeText(applicationContext, R.string.toastStarter, Toast.LENGTH_SHORT).show()startActivity(Intent(this, ListActivity.kt::class.java))
             showList(LunchType.STARTER)
         }
         binding.main.setOnClickListener {

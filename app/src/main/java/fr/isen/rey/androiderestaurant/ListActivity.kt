@@ -1,12 +1,10 @@
 package fr.isen.rey.androiderestaurant
 
-import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.widget.Switch
+import androidx.recyclerview.widget.LinearLayoutManager
 import fr.isen.rey.androiderestaurant.databinding.ActivityListBinding
-import java.util.*
 
 enum class LunchType {
     STARTER, MAIN, DESSERT;
@@ -26,7 +24,7 @@ class ListActivity : AppCompatActivity() {
     lateinit var binding: ActivityListBinding
     lateinit var currentCategory: LunchType
 
-    val fakeItems = listOf("plat 1", "plat 2", "plat 3", "plat 4")
+    val fakeItems = listOf("item 1", "item 2", "item 3", "item 4", "item 5")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,6 +33,7 @@ class ListActivity : AppCompatActivity() {
 
         currentCategory = intent.getSerializableExtra(HomeActivity.CategoryType) as? LunchType ?: LunchType.STARTER
         setupTitle()
+        setupList()
 
         Log.d("life cycle", "CategoryActivity onCreate")
     }
@@ -56,5 +55,10 @@ class ListActivity : AppCompatActivity() {
 
     fun setupTitle() {
         binding.category.text = getString(LunchType.getResString(currentCategory))
+    }
+
+    fun setupList() {
+        binding.listOfFood.layoutManager = LinearLayoutManager(applicationContext)
+        binding.listOfFood.adapter = ItemAdapter(fakeItems)
     }
 }
