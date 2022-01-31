@@ -4,13 +4,15 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import android.widget.TextView
+import androidx.cardview.widget.CardView
 import androidx.constraintlayout.widget.ConstraintLayout
 import fr.isen.rey.androiderestaurant.databinding.CellFoodBinding
+import fr.isen.rey.androiderestaurant.network.Dish
 
-class ItemAdapter(val listItem: List<String>, val itemClickListener: (String) -> Unit): RecyclerView.Adapter<ItemAdapter.ItemViewHolder>() {
+class ItemAdapter(val listItem: List<Dish>, val itemClickListener: (Dish) -> Unit): RecyclerView.Adapter<ItemAdapter.ItemViewHolder>() {
     class ItemViewHolder(binding: CellFoodBinding): RecyclerView.ViewHolder(binding.root) {
         val foodItem: TextView = binding.foodView
-        val layout: ConstraintLayout = binding.root
+        val layout: CardView = binding.root
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
@@ -20,7 +22,7 @@ class ItemAdapter(val listItem: List<String>, val itemClickListener: (String) ->
 
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         val item = listItem[position]
-        holder.foodItem.text = item
+        holder.foodItem.text = item.name
         holder.layout.setOnClickListener {
             itemClickListener.invoke(item)
         }

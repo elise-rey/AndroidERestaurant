@@ -1,6 +1,5 @@
 package fr.isen.rey.androiderestaurant
 
-import android.app.DownloadManager
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -9,7 +8,10 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.android.volley.Request
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
+import com.google.gson.GsonBuilder
 import fr.isen.rey.androiderestaurant.databinding.ActivityListBinding
+import fr.isen.rey.androiderestaurant.network.Dish
+import fr.isen.rey.androiderestaurant.network.MenuResult
 import fr.isen.rey.androiderestaurant.network.NetworkConstants
 import org.json.JSONObject
 
@@ -24,14 +26,20 @@ enum class LunchType {
                 DESSERT -> R.string.dessert
             }
         }
+
+        fun getCategoryTitle(type: LunchType): String {
+            return when(type) {
+                STARTER -> "Entrées"
+                MAIN -> "Plats"
+                DESSERT -> "Desserts"
+            }
+        }
     }
 }
 
 class ListActivity : AppCompatActivity() {
     lateinit var binding: ActivityListBinding
     lateinit var currentCategory: LunchType
-
-    val fakeItems = listOf("item 1", "item 2", "item 3", "item 4", "item 5")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,7 +48,6 @@ class ListActivity : AppCompatActivity() {
 
         currentCategory = intent.getSerializableExtra(HomeActivity.CategoryType) as? LunchType ?: LunchType.STARTER
         setupTitle()
-        setupList()
         makeRequest()
 
         Log.d("life cycle", "CategoryActivity onCreate")
@@ -65,14 +72,14 @@ class ListActivity : AppCompatActivity() {
         binding.category.text = getString(LunchType.getResString(currentCategory))
     }
 
-    private fun setupList() {
+    private fun setupList(items: List<Dish>) {
         binding.listOfFood.layoutManager = LinearLayoutManager(this)
-        binding.listOfFood.adapter = ItemAdapter(fakeItems) { selectedItem ->
+        binding.listOfFood.adapter = ItemAdapter(items) { selectedItem ->
             showDetails(selectedItem)
         }
     }
 
-    private fun showDetails(item: String) {
+    private fun showDetails(item: Dish) {
         val intent = Intent(this, DetailsActivity::class.java)
         intent.putExtra(SELECTED_ITEM, item)
         startActivity(intent)
@@ -87,13 +94,24 @@ class ListActivity : AppCompatActivity() {
             url,
             parameters,
             {
-                Log.d("debug", "$it")
+                parseResult(it.toString())
             },
             {
                 Log.d("debug", "$it")
             }
         )
         queue.add(request)
+    }
+
+    private fun parseResult(json: String) {
+        val result = GsonBuilder().create().fromJson(json, MenuResult::class.java)
+        val items = result.data.firstOrNull {
+            it.name == LunchType.getCategoryTitle(currentCategory)
+        }?.items
+
+        items?.let {
+            setupList(it)
+        }
     }
 
     companion object {

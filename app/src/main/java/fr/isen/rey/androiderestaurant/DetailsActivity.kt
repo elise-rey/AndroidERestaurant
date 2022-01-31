@@ -2,8 +2,9 @@ package fr.isen.rey.androiderestaurant
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.android.volley.toolbox.Volley
 import fr.isen.rey.androiderestaurant.databinding.ActivityDetailsBinding
+import fr.isen.rey.androiderestaurant.network.Dish
+import java.io.Serializable
 
 class DetailsActivity : AppCompatActivity() {
     lateinit var binding: ActivityDetailsBinding
@@ -13,7 +14,11 @@ class DetailsActivity : AppCompatActivity() {
         binding = ActivityDetailsBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.item.text = intent.getStringExtra(ListActivity.SELECTED_ITEM)
+        setupTitle()
+    }
 
+    private fun setupTitle() {
+        val currentDish = intent.getSerializableExtra(ListActivity.SELECTED_ITEM) as? Dish
+        binding.item.text = currentDish?.name
     }
 }
