@@ -12,7 +12,7 @@
         android:theme="@style/Theme.AndroidERestaurant"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".DetailsActivity"
+            android:name=".detail.DetailsActivity"
             android:exported="false" />
         <activity
             android:name=".ListActivity"

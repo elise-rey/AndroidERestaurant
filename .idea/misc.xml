@@ -3,13 +3,23 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/reyel/Documents/Cours/ISEN/Dev mobile/AndroidERestaurant/app/src/main/res/layout/activity_details.xml" value="0.2" />
+        <entry key="..\:/Users/reyel/Documents/Cours/ISEN/Dev mobile/AndroidERestaurant/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.16574074074074074" />
+        <entry key="..\:/Users/reyel/Documents/Cours/ISEN/Dev mobile/AndroidERestaurant/app/src/main/res/drawable/ic_cart.xml" value="0.16574074074074074" />
+        <entry key="..\:/Users/reyel/Documents/Cours/ISEN/Dev mobile/AndroidERestaurant/app/src/main/res/drawable/ic_delete.xml" value="0.16574074074074074" />
+        <entry key="..\:/Users/reyel/Documents/Cours/ISEN/Dev mobile/AndroidERestaurant/app/src/main/res/drawable/ic_launcher_background.xml" value="0.16574074074074074" />
+        <entry key="..\:/Users/reyel/Documents/Cours/ISEN/Dev mobile/AndroidERestaurant/app/src/main/res/drawable/ic_less.xml" value="0.16574074074074074" />
+        <entry key="..\:/Users/reyel/Documents/Cours/ISEN/Dev mobile/AndroidERestaurant/app/src/main/res/drawable/ic_less_clicked.xml" value="0.2703125" />
+        <entry key="..\:/Users/reyel/Documents/Cours/ISEN/Dev mobile/AndroidERestaurant/app/src/main/res/drawable/ic_more.xml" value="0.16574074074074074" />
+        <entry key="..\:/Users/reyel/Documents/Cours/ISEN/Dev mobile/AndroidERestaurant/app/src/main/res/drawable/ic_more_clicked.xml" value="0.2703125" />
+        <entry key="..\:/Users/reyel/Documents/Cours/ISEN/Dev mobile/AndroidERestaurant/app/src/main/res/layout-v23/activity_details.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/reyel/Documents/Cours/ISEN/Dev mobile/AndroidERestaurant/app/src/main/res/layout/activity_details.xml" value="0.12" />
         <entry key="..\:/Users/reyel/Documents/Cours/ISEN/Dev mobile/AndroidERestaurant/app/src/main/res/layout/activity_home.xml" value="0.1" />
         <entry key="..\:/Users/reyel/Documents/Cours/ISEN/Dev mobile/AndroidERestaurant/app/src/main/res/layout/activity_list.xml" value="0.176" />
         <entry key="..\:/Users/reyel/Documents/Cours/ISEN/Dev mobile/AndroidERestaurant/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/Users/reyel/Documents/Cours/ISEN/Dev mobile/AndroidERestaurant/app/src/main/res/layout/activity_starters.xml" value="0.1" />
-        <entry key="..\:/Users/reyel/Documents/Cours/ISEN/Dev mobile/AndroidERestaurant/app/src/main/res/layout/cell_food.xml" value="0.264" />
+        <entry key="..\:/Users/reyel/Documents/Cours/ISEN/Dev mobile/AndroidERestaurant/app/src/main/res/layout/cell_food.xml" value="0.1" />
         <entry key="..\:/Users/reyel/Documents/Cours/ISEN/Dev mobile/AndroidERestaurant/app/src/main/res/layout/cell_main.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/reyel/Documents/Cours/ISEN/Dev mobile/AndroidERestaurant/app/src/main/res/layout/fragment_photo.xml" value="0.15670289855072464" />
       </map>
     </option>
   </component>

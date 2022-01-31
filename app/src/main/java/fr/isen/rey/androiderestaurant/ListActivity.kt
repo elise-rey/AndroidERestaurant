@@ -10,6 +10,7 @@ import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
 import com.google.gson.GsonBuilder
 import fr.isen.rey.androiderestaurant.databinding.ActivityListBinding
+import fr.isen.rey.androiderestaurant.detail.DetailsActivity
 import fr.isen.rey.androiderestaurant.network.Dish
 import fr.isen.rey.androiderestaurant.network.MenuResult
 import fr.isen.rey.androiderestaurant.network.NetworkConstants
@@ -20,7 +21,7 @@ enum class LunchType {
 
     companion object {
         fun getResString(type: LunchType): Int {
-            return when(type) {
+            return when (type) {
                 STARTER -> R.string.starter
                 MAIN -> R.string.main
                 DESSERT -> R.string.dessert
@@ -28,7 +29,7 @@ enum class LunchType {
         }
 
         fun getCategoryTitle(type: LunchType): String {
-            return when(type) {
+            return when (type) {
                 STARTER -> "Entrées"
                 MAIN -> "Plats"
                 DESSERT -> "Desserts"
