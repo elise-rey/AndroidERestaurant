@@ -1,11 +1,8 @@
 package fr.isen.rey.androiderestaurant
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.view.Menu
-import android.widget.Toast
 import fr.isen.rey.androiderestaurant.databinding.ActivityHomeBinding
 
 class HomeActivity : BaseActivity() {

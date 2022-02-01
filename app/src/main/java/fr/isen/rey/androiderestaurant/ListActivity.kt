@@ -1,7 +1,6 @@
 package fr.isen.rey.androiderestaurant
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import androidx.recyclerview.widget.LinearLayoutManager

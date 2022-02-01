@@ -13,7 +13,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:fontFamily="@font/poppins_medium"
-        android:text="TextView"
+        android:text="@string/text"
         android:textColor="@color/black"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -33,7 +33,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:fontFamily="@font/poppins"
-        android:text="TextView"
+        android:text="@string/text"
         android:textStyle="italic"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -61,20 +61,21 @@
 
         <ImageButton
             android:id="@+id/lessButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
             android:layout_weight="1"
-            android:backgroundTint="#00FFFFFF"
+            android:backgroundTint="@color/transparent"
+            android:contentDescription="@string/button"
             app:srcCompat="@drawable/ic_less"
-            tools:ignore="SpeakableTextPresentCheck" />
+            tools:ignore="SpeakableTextPresentCheck,ImageContrastCheck,ImageContrastCheck,DuplicateSpeakableTextCheck" />
 
         <TextView
             android:id="@+id/nbItem"
-            android:layout_width="28dp"
-            android:layout_height="wrap_content"
+            android:layout_width="30dp"
+            android:layout_height="56dp"
             android:layout_weight="1"
             android:fontFamily="@font/poppins"
-            android:text="textView"
+            android:text="@string/number"
             android:textAlignment="center"
             android:textColor="@color/black"
             android:textSize="16sp"
@@ -82,11 +83,13 @@
 
         <ImageButton
             android:id="@+id/moreButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
             android:layout_weight="1"
-            android:backgroundTint="#00FFFFFF"
-            app:srcCompat="@drawable/ic_more" />
+            android:backgroundTint="@color/transparent"
+            android:contentDescription="@string/button"
+            app:srcCompat="@drawable/ic_more"
+            tools:ignore="SpeakableTextPresentCheck,ImageContrastCheck" />
 
     </LinearLayout>
 
@@ -105,12 +108,13 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="40dp"
         android:fontFamily="@font/poppins_medium"
-        android:text="Button"
+        android:text="@string/button"
         android:textColor="@color/white"
         android:textSize="16sp"
         app:cornerRadius="24dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="TextContrastCheck,TextContrastCheck" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

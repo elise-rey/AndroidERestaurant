@@ -1,7 +1,6 @@
 package fr.isen.rey.androiderestaurant.detail
 
 import android.annotation.SuppressLint
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.google.android.material.snackbar.Snackbar
 import fr.isen.rey.androiderestaurant.BaseActivity
@@ -60,6 +59,7 @@ class DetailsActivity : BaseActivity() {
                 cart.addItem(dish, count.toInt())
                 cart.save(this)
                 Snackbar.make(binding.root, R.string.snackbarAdd, Snackbar.LENGTH_SHORT).show()
+                invalidateOptionsMenu()
             }
         }
     }

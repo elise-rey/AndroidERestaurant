@@ -1,21 +1,20 @@
 package fr.isen.rey.androiderestaurant.cart
 
 import android.content.Context
-import android.util.Log
 import com.google.gson.GsonBuilder
 import fr.isen.rey.androiderestaurant.network.Dish
 import java.io.File
 import java.io.Serializable
 
-class Cart(private val items: MutableList<CartItem>): Serializable {
-    var itemsCount: Int = 0
+class Cart(val items: MutableList<CartItem>): Serializable {
+    private val itemsCount: Int
         get() {
             return items.map {
                 it.quantity
             }.reduceOrNull { acc, i -> acc + i } ?: 0
         }
 
-    var totalPrice: Float = 0f
+    private val totalPrice: Float
         get() {
             return items.map {
                 it.quantity * it.dish.prices.first().price.toFloat()
@@ -36,6 +35,7 @@ class Cart(private val items: MutableList<CartItem>): Serializable {
         val jsonFile = File(context.cacheDir.absolutePath + CART_FILE)
         val json = GsonBuilder().create().toJson(this)
         jsonFile.writeText(json)
+        updateCount(context)
     }
 
     private fun updateCount(context: Context) {
@@ -62,6 +62,4 @@ class Cart(private val items: MutableList<CartItem>): Serializable {
     }
 }
 
-class CartItem(val dish: Dish, var quantity: Int): Serializable {
-
-}
+class CartItem(val dish: Dish, var quantity: Int): Serializable { }

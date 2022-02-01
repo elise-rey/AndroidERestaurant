@@ -5,10 +5,9 @@
     <string name="main">Plats</string>
     <string name="dessert">Desserts</string>
 
-    <string name="toastStarter">Ouverture des entrées...</string>
-    <string name="toastMain">Ouverture des plats...</string>
-    <string name="toastDessert">Ouverture des desserts...</string>
-
+    <string name="button">Bouton</string>
+    <string name="number">1</string>
+    <string name="text">Texte</string>
     <string name="total">Ajouter au panier - </string>
     <string name="snackbarAdd">Ajouté</string>
 
