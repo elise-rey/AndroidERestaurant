@@ -3,12 +3,15 @@ package fr.isen.rey.androiderestaurant.detail
 import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.google.android.material.snackbar.Snackbar
+import fr.isen.rey.androiderestaurant.BaseActivity
 import fr.isen.rey.androiderestaurant.ListActivity
 import fr.isen.rey.androiderestaurant.R
+import fr.isen.rey.androiderestaurant.cart.Cart
 import fr.isen.rey.androiderestaurant.databinding.ActivityDetailsBinding
 import fr.isen.rey.androiderestaurant.network.Dish
 
-class DetailsActivity : AppCompatActivity() {
+class DetailsActivity : BaseActivity() {
     private lateinit var binding: ActivityDetailsBinding
     var currentDish: Dish? = null
     var count: Float = 1f
@@ -21,6 +24,7 @@ class DetailsActivity : AppCompatActivity() {
         currentDish = intent.getSerializableExtra(ListActivity.SELECTED_ITEM) as? Dish
         setupContent()
         incrementNbItem()
+        addToCart()
     }
 
     @SuppressLint("SetTextI18n")
@@ -49,13 +53,24 @@ class DetailsActivity : AppCompatActivity() {
         }
     }
 
+    private fun addToCart() {
+        binding.addToCart.setOnClickListener {
+            currentDish?.let { dish ->
+                val cart = Cart.getCart(this)
+                cart.addItem(dish, count.toInt())
+                cart.save(this)
+                Snackbar.make(binding.root, R.string.snackbarAdd, Snackbar.LENGTH_SHORT).show()
+            }
+        }
+    }
+
     @SuppressLint("SetTextI18n")
     private fun refreshButton() {
         binding.nbItem.text = count.toInt().toString()
+
         currentDish?.let { dish ->
             val price: Float = dish.prices.first().price.toFloat()
             val totalPrice = price * count
-
             binding.addToCart.text = "${getString(R.string.total)} $totalPrice €"
         }
     }

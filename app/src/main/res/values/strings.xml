@@ -10,4 +10,7 @@
     <string name="toastDessert">Ouverture des desserts...</string>
 
     <string name="total">Ajouter au panier - </string>
+    <string name="snackbarAdd">Ajouté</string>
+
+    <string name="cart">Panier</string>
 </resources>
