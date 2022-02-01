@@ -11,12 +11,14 @@ class CartActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityCartBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        loadList()
     }
 
     private fun loadList() {
         val items = Cart.getCart(this).items
 
         binding.recyclerView.layoutManager = LinearLayoutManager(this)
-        binding.recyclerView.adapter
+        binding.recyclerView.adapter = CartAdapter(items)
     }
 }
