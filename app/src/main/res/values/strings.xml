@@ -9,4 +9,5 @@
     <string name="toastMain">Ouverture des plats...</string>
     <string name="toastDessert">Ouverture des desserts...</string>
 
+    <string name="total">Ajouter au panier - </string>
 </resources>

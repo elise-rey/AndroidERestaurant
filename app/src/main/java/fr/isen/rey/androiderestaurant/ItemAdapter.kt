@@ -10,7 +10,7 @@ import com.squareup.picasso.Picasso
 import fr.isen.rey.androiderestaurant.databinding.CellFoodBinding
 import fr.isen.rey.androiderestaurant.network.Dish
 
-class ItemAdapter(val listItem: List<Dish>, val itemClickListener: (Dish) -> Unit): RecyclerView.Adapter<ItemAdapter.ItemViewHolder>() {
+class ItemAdapter(private val listItem: List<Dish>, private val itemClickListener: (Dish) -> Unit): RecyclerView.Adapter<ItemAdapter.ItemViewHolder>() {
     class ItemViewHolder(binding: CellFoodBinding): RecyclerView.ViewHolder(binding.root) {
         val foodItem: TextView = binding.foodView
         val priceItem: TextView = binding.priceView

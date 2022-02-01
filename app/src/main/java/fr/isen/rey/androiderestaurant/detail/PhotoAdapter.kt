@@ -4,7 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
 
-class PhotoAdapter(activity: AppCompatActivity, val list: List<String>): FragmentStateAdapter(activity) {
+class PhotoAdapter(activity: AppCompatActivity, private val list: List<String>): FragmentStateAdapter(activity) {
     override fun getItemCount(): Int {
         return list.count()
     }

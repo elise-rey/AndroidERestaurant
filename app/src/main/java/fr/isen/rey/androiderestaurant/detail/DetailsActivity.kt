@@ -1,15 +1,17 @@
 package fr.isen.rey.androiderestaurant.detail
 
+import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.MotionEvent
 import fr.isen.rey.androiderestaurant.ListActivity
+import fr.isen.rey.androiderestaurant.R
 import fr.isen.rey.androiderestaurant.databinding.ActivityDetailsBinding
 import fr.isen.rey.androiderestaurant.network.Dish
 
 class DetailsActivity : AppCompatActivity() {
-    lateinit var binding: ActivityDetailsBinding
+    private lateinit var binding: ActivityDetailsBinding
     var currentDish: Dish? = null
+    var count: Float = 1f
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,27 +23,40 @@ class DetailsActivity : AppCompatActivity() {
         incrementNbItem()
     }
 
+    @SuppressLint("SetTextI18n")
     private fun setupContent() {
+        binding.viewPager.adapter = currentDish?.let { PhotoAdapter(this, it.images) }
+
         binding.dishTitle.text = currentDish?.name
         binding.ingredients.text = currentDish?.ingredients?.joinToString(", ") { it.name }
 
-        binding.viewPager.adapter = currentDish?.let { PhotoAdapter(this, it.images) }
+        binding.nbItem.text = count.toInt().toString()
+        binding.addToCart.text = "${getString(R.string.total)} ${currentDish?.prices?.first()?.price?.toFloat()} €"
     }
 
     private fun incrementNbItem() {
-        var count: Int = 1
-        binding.nbItem.text = count.toString()
         binding.lessButton.setOnClickListener {
-            if (count == 0) {
-                binding.nbItem.text = count.toString()
+            if (count == 1f) {
+                refreshButton()
             } else {
-                count--
-                binding.nbItem.text = count.toString()
+                count -= 1
+                refreshButton()
             }
         }
         binding.moreButton.setOnClickListener {
-            count++
-            binding.nbItem.text = count.toString()
+            count += 1
+            refreshButton()
+        }
+    }
+
+    @SuppressLint("SetTextI18n")
+    private fun refreshButton() {
+        binding.nbItem.text = count.toInt().toString()
+        currentDish?.let { dish ->
+            val price: Float = dish.prices.first().price.toFloat()
+            val totalPrice = price * count
+
+            binding.addToCart.text = "${getString(R.string.total)} $totalPrice €"
         }
     }
 }
