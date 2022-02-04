@@ -1,10 +1,12 @@
 package fr.isen.rey.androiderestaurant.cart
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import androidx.recyclerview.widget.LinearLayoutManager
 import fr.isen.rey.androiderestaurant.databinding.ActivityCartBinding
+import fr.isen.rey.androiderestaurant.user.UserActivity
 
 class CartActivity : AppCompatActivity() {
     private lateinit var binding: ActivityCartBinding
@@ -14,6 +16,11 @@ class CartActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         loadList()
+
+        binding.orderButton.setOnClickListener {
+            val intent = Intent(this, UserActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun loadList() {

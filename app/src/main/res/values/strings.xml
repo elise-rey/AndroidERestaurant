@@ -10,7 +10,17 @@
     <string name="text">Texte</string>
     <string name="total">Ajouter au panier - </string>
     <string name="snackbarAdd">Ajouté</string>
-    <string name="quantity">Quantité : </string>
 
     <string name="cart">Panier</string>
+    <string name="quantity">Quantité : </string>
+    <string name="order">Passer la commande</string>
+    
+    <string name="register">Créer un compte</string>
+    <string name="login">Se connecter</string>
+    <string name="firstname">Prénom</string>
+    <string name="surname">Nom</string>
+    <string name="email">Email</string>
+    <string name="password">Mot de passe</string>
+    <string name="newAccount">Je n\'ai pas de compte</string>
+    <string name="alreadyAccount">J\'ai déjà un compte</string>
 </resources>
