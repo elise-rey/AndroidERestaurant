@@ -10,7 +10,7 @@ import fr.isen.rey.androiderestaurant.databinding.FragmentRegisterBinding
 
 class RegisterFragment : Fragment() {
     lateinit var binding: FragmentRegisterBinding
-    var interactor: UserActivityFragmentInteraction? = null
+    private var interactor: UserActivityFragmentInteraction? = null
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -35,6 +35,13 @@ class RegisterFragment : Fragment() {
             interactor?.showLogin()
         }
         binding.registerButton.setOnClickListener {
+            interactor?.makeRequest(
+                binding.email.text.toString(),
+                binding.password.text.toString(),
+                binding.firstname.text.toString(),
+                binding.lastname.text.toString(),
+                false
+            )
         }
     }
 }

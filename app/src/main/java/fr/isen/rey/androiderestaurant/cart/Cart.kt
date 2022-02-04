@@ -5,6 +5,7 @@ import com.google.gson.GsonBuilder
 import fr.isen.rey.androiderestaurant.network.Dish
 import java.io.File
 import java.io.Serializable
+import java.lang.reflect.GenericSignatureFormatError
 
 class Cart(val items: MutableList<CartItem>): Serializable {
     private val itemsCount: Int
@@ -40,6 +41,14 @@ class Cart(val items: MutableList<CartItem>): Serializable {
         val json = GsonBuilder().create().toJson(this)
         jsonFile.writeText(json)
         updateCount(context)
+    }
+
+    fun clear() {
+        items.removeAll{true}
+    }
+
+    fun toJson(): String {
+        return GsonBuilder().create().toJson(this)
     }
 
     private fun updateCount(context: Context) {
