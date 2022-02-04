@@ -10,6 +10,7 @@
     <string name="text">Texte</string>
     <string name="total">Ajouter au panier - </string>
     <string name="snackbarAdd">Ajouté</string>
+    <string name="quantity">Quantité : </string>
 
     <string name="cart">Panier</string>
 </resources>

@@ -2,6 +2,7 @@ package fr.isen.rey.androiderestaurant.cart
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import androidx.recyclerview.widget.LinearLayoutManager
 import fr.isen.rey.androiderestaurant.databinding.ActivityCartBinding
 
@@ -16,9 +17,14 @@ class CartActivity : AppCompatActivity() {
     }
 
     private fun loadList() {
-        val items = Cart.getCart(this).items
+        val cart = Cart.getCart(this)
+        val items = cart.items
 
         binding.recyclerView.layoutManager = LinearLayoutManager(this)
-        binding.recyclerView.adapter = CartAdapter(items)
+        binding.recyclerView.adapter = CartAdapter(items) {
+            cart.removeItem(it)
+            cart.save(this)
+            loadList()
+        }
     }
 }

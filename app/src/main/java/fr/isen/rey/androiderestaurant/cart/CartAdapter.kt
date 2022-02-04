@@ -1,5 +1,7 @@
 package fr.isen.rey.androiderestaurant.cart
 
+import android.annotation.SuppressLint
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.ImageButton
@@ -10,7 +12,9 @@ import com.squareup.picasso.Picasso
 import fr.isen.rey.androiderestaurant.R
 import fr.isen.rey.androiderestaurant.databinding.CellCartBinding
 
-class CartAdapter(private val items: List<CartItem>): RecyclerView.Adapter<CartAdapter.CartViewHolder>() {
+class CartAdapter(private val items: List<CartItem>, private val deleteClickListener: (CartItem) -> Unit): RecyclerView.Adapter<CartAdapter.CartViewHolder>() {
+    lateinit var context: Context
+
     class CartViewHolder(binding: CellCartBinding): RecyclerView.ViewHolder(binding.root) {
         val dishName: TextView = binding.dishView
         val price: TextView = binding.price
@@ -20,14 +24,21 @@ class CartAdapter(private val items: List<CartItem>): RecyclerView.Adapter<CartA
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CartViewHolder {
+        context = parent.context
         return CartViewHolder(CellCartBinding.inflate(LayoutInflater.from(parent.context), parent, false))
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: CartViewHolder, position: Int) {
         val cartItem = items[position]
+
         holder.dishName.text = cartItem.dish.name
-        holder.price.text = cartItem.dish.prices.first().price
-        holder.quantity.text = cartItem.quantity.toString()
+        holder.price.text = "${cartItem.dish.prices.first().price} €"
+        holder.quantity.text = "${context?.getString(R.string.quantity)} ${cartItem.quantity.toString()}"
+        holder.delete.setOnClickListener {
+            deleteClickListener.invoke(cartItem)
+        }
+
         Picasso.get()
             .load(cartItem.dish.getThumbnailURL())
             .placeholder(R.drawable.no_photo)

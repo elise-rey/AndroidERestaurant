@@ -31,6 +31,10 @@ class Cart(val items: MutableList<CartItem>): Serializable {
         }
     }
 
+    fun removeItem(cartItem: CartItem) {
+        items.remove(cartItem)
+    }
+
     fun save(context: Context) {
         val jsonFile = File(context.cacheDir.absolutePath + CART_FILE)
         val json = GsonBuilder().create().toJson(this)
