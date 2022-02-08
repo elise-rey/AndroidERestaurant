@@ -7,11 +7,26 @@
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/teal_200</item>
-        <item name="colorSecondaryVariant">@color/teal_700</item>
+        <item name="colorSecondaryVariant">@color/teal_200</item>
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
         <item name="android:colorControlHighlight">@color/teal_transparent</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="floatingCardView">
+        <item name="android:backgroundTint">@color/white</item>
+        <item name="android:color">?android:colorControlHighlight</item>
+        <item name="android:foreground">?attr/selectableItemBackground</item>
+    </style>
+
+    <style name="tealButton">
+        <item name="backgroundTint">@color/teal_500</item>
+        <item name="cornerRadius">24dp</item>
+        <item name="fontFamily">@font/poppins_medium</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/white</item>
     </style>
 </resources>

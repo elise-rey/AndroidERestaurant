@@ -1,5 +1,6 @@
 package fr.isen.rey.androiderestaurant
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.ImageView
@@ -23,6 +24,7 @@ class ItemAdapter(private val listItem: List<Dish>, private val itemClickListene
         return ItemViewHolder(binding)
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         val item = listItem[position]
         holder.foodItem.text = item.name

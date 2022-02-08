@@ -2,6 +2,7 @@ package fr.isen.rey.androiderestaurant.detail
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.widget.Toast
 import com.google.android.material.snackbar.Snackbar
 import fr.isen.rey.androiderestaurant.BaseActivity
 import fr.isen.rey.androiderestaurant.ListActivity
@@ -58,7 +59,8 @@ class DetailsActivity : BaseActivity() {
                 val cart = Cart.getCart(this)
                 cart.addItem(dish, count.toInt())
                 cart.save(this)
-                Snackbar.make(binding.root, R.string.snackbarAdd, Snackbar.LENGTH_SHORT).show()
+                //Snackbar.make(binding.root, R.string.snackbarAdd, Snackbar.LENGTH_SHORT).show()
+                Toast.makeText(this, "Ajouté", Toast.LENGTH_SHORT).show()
                 invalidateOptionsMenu()
             }
         }

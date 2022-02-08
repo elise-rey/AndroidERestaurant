@@ -8,6 +8,8 @@
     <string name="button">Bouton</string>
     <string name="number">1</string>
     <string name="text">Texte</string>
+    <string name="image">Image</string>
+
     <string name="total">Ajouter au panier - </string>
     <string name="snackbarAdd">Ajouté</string>
 

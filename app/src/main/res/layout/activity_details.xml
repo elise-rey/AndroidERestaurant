@@ -14,7 +14,6 @@
         android:layout_marginEnd="8dp"
         android:fontFamily="@font/poppins_medium"
         android:text="@string/text"
-        android:textColor="@color/black"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -77,7 +76,6 @@
             android:fontFamily="@font/poppins"
             android:text="@string/number"
             android:textAlignment="center"
-            android:textColor="@color/black"
             android:textSize="16sp"
             android:translationY="16dp" />
 
@@ -103,15 +101,11 @@
 
     <Button
         android:id="@+id/addToCart"
-        style="@style/Widget.Material3.Button"
+        style="@style/tealButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="40dp"
-        android:fontFamily="@font/poppins_medium"
         android:text="@string/button"
-        android:textColor="@color/white"
-        android:textSize="16sp"
-        app:cornerRadius="24dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

@@ -17,7 +17,6 @@
         android:fontFamily="@font/poppins_medium"
         android:text="TextView"
         android:textAlignment="center"
-        android:textColor="#000000"
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/listOfFood"
         app:layout_constraintEnd_toEndOf="parent"

@@ -5,13 +5,22 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/photoBanner"
+    <com.bosphere.fadingedgelayout.FadingEdgeLayout
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:scaleType="centerCrop"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@tools:sample/avatars" />
+        android:layout_height="match_parent"
+        app:fel_edge="bottom">
+
+        <ImageView
+            android:id="@+id/photoBanner"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:contentDescription="@string/image"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:srcCompat="@tools:sample/avatars" />
+
+    </com.bosphere.fadingedgelayout.FadingEdgeLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
