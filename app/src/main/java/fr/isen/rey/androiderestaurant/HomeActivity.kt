@@ -1,8 +1,11 @@
 package fr.isen.rey.androiderestaurant
 
+import android.R
+import android.app.ActivityOptions
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.view.Window
 import androidx.appcompat.app.AppCompatActivity
 import fr.isen.rey.androiderestaurant.databinding.ActivityHomeBinding
 
