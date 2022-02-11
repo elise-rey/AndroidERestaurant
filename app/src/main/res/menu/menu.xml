@@ -1,10 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android"
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/cart"
+        android:id="@+id/homeButton"
+        android:icon="@drawable/ic_home"
+        android:title="@string/icon"
+        app:actionLayout="@layout/menu_home"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/cartButton"
         android:icon="@drawable/ic_cart"
-        android:title="@string/cart"
+        android:title="@string/icon"
         app:actionLayout="@layout/menu_cart"
         app:showAsAction="always" />
 </menu>

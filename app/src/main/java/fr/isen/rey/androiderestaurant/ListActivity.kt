@@ -49,23 +49,6 @@ class ListActivity : BaseActivity() {
         currentCategory = intent.getSerializableExtra(HomeActivity.CategoryType) as? LunchType ?: LunchType.STARTER
         setupTitle()
         makeRequest()
-
-        Log.d("life cycle", "CategoryActivity onCreate")
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        Log.d("life cycle", "CategoryActivity onDestroy")
-    }
-
-    override fun onRestart() {
-        super.onRestart()
-        Log.d("life cycle", "CategoryActivity onRestart")
-    }
-
-    override fun onStop() {
-        super.onStop()
-        Log.d("life cycle", "CategoryActivity onStop")
     }
 
     private fun setupTitle() {

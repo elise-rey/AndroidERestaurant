@@ -8,20 +8,31 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import fr.isen.rey.androiderestaurant.cart.Cart
 import fr.isen.rey.androiderestaurant.cart.CartActivity
+import fr.isen.rey.androiderestaurant.cart.EmptyCartActivity
 
 open class BaseActivity: AppCompatActivity() {
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu, menu)
 
-        val menuView = menu?.findItem(R.id.cart)?.actionView
-        val countText = menuView?.findViewById(R.id.itemCount) as? TextView
+        val menuHome = menu?.findItem(R.id.homeButton)?.actionView
+        menuHome?.setOnClickListener {
+            val intent = Intent(this, HomeActivity::class.java)
+            startActivity(intent)
+        }
+
+        val menuCart = menu?.findItem(R.id.cartButton)?.actionView
+        val countText = menuCart?.findViewById(R.id.itemCount) as? TextView
         val count = getItemsCount()
         countText?.isVisible = count > 0
         countText?.text = count.toString()
 
-        menuView?.setOnClickListener {
+        menuCart?.setOnClickListener {
             if (count > 0) {
                 val intent = Intent(this, CartActivity::class.java)
+                startActivity(intent)
+            }
+            else if (count == 0) {
+                val intent = Intent(this, EmptyCartActivity::class.java)
                 startActivity(intent)
             }
         }

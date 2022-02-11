@@ -17,10 +17,6 @@ class LoginFragment : Fragment() {
         interactor = context as? UserActivityFragmentInteraction
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?

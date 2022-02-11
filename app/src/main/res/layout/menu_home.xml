@@ -5,7 +5,7 @@
     android:layout_height="wrap_content">
 
     <ImageView
-        android:id="@+id/cartImage"
+        android:id="@+id/homeImage"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_marginEnd="8dp"
@@ -16,21 +16,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/ic_cart" />
-
-    <TextView
-        android:id="@+id/itemCount"
-        style="@style/textCart"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:fontFamily="@font/poppins_medium"
-        android:textAlignment="center"
-        android:textSize="14sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.35"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.2" />
-
+        app:srcCompat="@drawable/ic_home" />
 </androidx.constraintlayout.widget.ConstraintLayout>

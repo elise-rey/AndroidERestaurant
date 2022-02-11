@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <color name="teal_200">#FF03DAC5</color>
-    <color name="teal_700">#FF018786</color>
-    <color name="teal_500">#FF00C5C3</color>
-    <color name="teal_transparent">#3300C5C3</color>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <color name="teal_200">#FF26C6DA</color>
+    <color name="teal_500">#FF00ACC1</color>
+    <color name="teal_700">#FF00838F</color>
+    <color name="teal_transparent">#3326C6DA</color>
 
     <color name="black">#FF000000</color>
+    <color name="default_grey">#FF121212</color>
     <color name="dark_grey">#FF1C1C1C</color>
+    <color name="light_grey">#FF777777</color>
     <color name="white">#FFFFFFFF</color>
     <color name="transparent">#00000000</color>
 </resources>

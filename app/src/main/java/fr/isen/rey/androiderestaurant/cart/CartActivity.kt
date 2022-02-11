@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.android.volley.Request
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
+import fr.isen.rey.androiderestaurant.R
 import fr.isen.rey.androiderestaurant.databinding.ActivityCartBinding
 import fr.isen.rey.androiderestaurant.network.NetworkConstants
 import fr.isen.rey.androiderestaurant.user.UserActivity
@@ -36,7 +37,8 @@ class CartActivity : AppCompatActivity() {
         ActivityResultContracts.StartActivityForResult()
     ) {
         if (it.resultCode == Activity.RESULT_OK) {
-            Toast.makeText(this, "Commande envoyée", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, R.string.orderSent, Toast.LENGTH_SHORT).show()
+            makeRequest()
         }
     }
 
@@ -59,9 +61,9 @@ class CartActivity : AppCompatActivity() {
         val sharedPreferences = getSharedPreferences(UserActivity.USER_PREFERENCES_NAME, Context.MODE_PRIVATE)
 
         val parameters = JSONObject()
+        parameters.put(NetworkConstants.KEY_SHOP, NetworkConstants.SHOP)
         parameters.put(NetworkConstants.KEY_MSG, cart.toJson())
         parameters.put(NetworkConstants.KEY_USER, sharedPreferences.getInt(UserActivity.ID_USER, -1))
-        parameters.put(NetworkConstants.KEY_SHOP, NetworkConstants.SHOP)
 
         val request = JsonObjectRequest(
             Request.Method.POST,
@@ -73,7 +75,7 @@ class CartActivity : AppCompatActivity() {
                 finish()
             },
             {
-                Log.d("request", it.message ?: "erreur")
+                Log.d("request", (it.message ?: R.string.requestError) as String)
             }
         )
         queue.add(request)

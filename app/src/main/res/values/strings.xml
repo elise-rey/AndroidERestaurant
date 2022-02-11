@@ -1,22 +1,20 @@
 <resources>
+    <!--Home Page-->
     <string name="app_name">Android e-Restaurant</string>
     <string name="welcome">Bienvenue chez Android e-Restaurant</string>
     <string name="starter">Entrées</string>
     <string name="main">Plats</string>
     <string name="dessert">Desserts</string>
 
-    <string name="button">Bouton</string>
-    <string name="number">1</string>
-    <string name="text">Texte</string>
-    <string name="image">Image</string>
+    <!--Details Page-->
+    <string name="total">Ajouter au panier</string>
 
-    <string name="total">Ajouter au panier - </string>
-    <string name="snackbarAdd">Ajouté</string>
-
-    <string name="cart">Panier</string>
+    <!--Cart Page-->
     <string name="quantity">Quantité : </string>
     <string name="order">Passer la commande</string>
-    
+    <string name="emptyCart">Votre panier est vide</string>
+
+    <!--Login & Register Pages-->
     <string name="register">Créer un compte</string>
     <string name="login">Se connecter</string>
     <string name="firstname">Prénom</string>
@@ -26,5 +24,17 @@
     <string name="newAccount">Je n\'ai pas de compte</string>
     <string name="alreadyAccount">J\'ai déjà un compte</string>
 
+    <!--Default values-->
+    <string name="button">Bouton</string>
+    <string name="number">0</string>
+    <string name="text">Texte</string>
+    <string name="image">Image</string>
+    <string name="icon">Icone</string>
+
+    <!--Log & toast messages-->
+    <string name="added">Ajouté</string>
     <string name="invalidForm">Veuillez remplir tous les champs</string>
+    <string name="orderSent">Commande envoyée</string>
+    <string name="invalidIdOrPW">Identifiant ou mot de passe incorrect</string>
+    <string name="requestError">Une erreur s\'est produite lors de la requête</string>
 </resources>

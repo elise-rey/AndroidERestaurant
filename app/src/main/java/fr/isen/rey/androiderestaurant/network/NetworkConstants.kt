@@ -9,7 +9,7 @@ class NetworkConstants {
         const val ORDER = "user/order"
 
         const val KEY_SHOP = "id_shop"
-        const val KEY_USER = "id"
+        const val KEY_USER = "id_user"
         const val KEY_FIRSTNAME = "firstname"
         const val KEY_LASTNAME = "lastname"
         const val KEY_EMAIL = "email"

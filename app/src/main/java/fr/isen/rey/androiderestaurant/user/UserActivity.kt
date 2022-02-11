@@ -10,6 +10,7 @@ import com.android.volley.Request
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
 import com.google.gson.GsonBuilder
+import fr.isen.rey.androiderestaurant.BaseActivity
 import fr.isen.rey.androiderestaurant.R
 import fr.isen.rey.androiderestaurant.databinding.ActivityUserBinding
 import fr.isen.rey.androiderestaurant.network.NetworkConstants
@@ -29,7 +30,7 @@ interface UserActivityFragmentInteraction {
     )
 }
 
-class UserActivity : AppCompatActivity(), UserActivityFragmentInteraction {
+class UserActivity : BaseActivity(), UserActivityFragmentInteraction {
     lateinit var binding: ActivityUserBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -93,18 +94,22 @@ class UserActivity : AppCompatActivity(), UserActivityFragmentInteraction {
             url,
             parameters,
             {
-                val userResult = GsonBuilder().create().fromJson(it.toString(), UserResult::class.java)
-                if (userResult.data != null) {
-                    saveUser(userResult.data)
-                } else {
-                    Toast.makeText(this, "Identifiant ou mot de passe incorrect", Toast.LENGTH_SHORT).show()
-                }
+                existingUser(it)
             },
             {
-                Log.d("request", it.message?: "erreur")
+                Log.d("request", (it.message?: R.string.requestError) as String)
             }
         )
         queue.add(request)
+    }
+
+    private fun existingUser(data: JSONObject) {
+        val userResult = GsonBuilder().create().fromJson(data.toString(), UserResult::class.java)
+        if (userResult.data != null) {
+            saveUser(userResult.data)
+        } else {
+            Toast.makeText(this, R.string.invalidIdOrPW, Toast.LENGTH_SHORT).show()
+        }
     }
 
     private fun saveUser(user: User) {

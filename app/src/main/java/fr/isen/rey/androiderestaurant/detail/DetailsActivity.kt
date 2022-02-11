@@ -3,7 +3,6 @@ package fr.isen.rey.androiderestaurant.detail
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.widget.Toast
-import com.google.android.material.snackbar.Snackbar
 import fr.isen.rey.androiderestaurant.BaseActivity
 import fr.isen.rey.androiderestaurant.ListActivity
 import fr.isen.rey.androiderestaurant.R
@@ -35,7 +34,8 @@ class DetailsActivity : BaseActivity() {
         binding.ingredients.text = currentDish?.ingredients?.joinToString(", ") { it.name }
 
         binding.nbItem.text = count.toInt().toString()
-        binding.addToCart.text = "${getString(R.string.total)} ${currentDish?.prices?.first()?.price?.toFloat()} €"
+        binding.totalPrice.text = "${currentDish?.prices?.first()?.price?.toFloat()} €"
+        binding.addToCart.text = "${getString(R.string.total)}"
     }
 
     private fun incrementNbItem() {
@@ -59,8 +59,7 @@ class DetailsActivity : BaseActivity() {
                 val cart = Cart.getCart(this)
                 cart.addItem(dish, count.toInt())
                 cart.save(this)
-                //Snackbar.make(binding.root, R.string.snackbarAdd, Snackbar.LENGTH_SHORT).show()
-                Toast.makeText(this, "Ajouté", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, R.string.added, Toast.LENGTH_SHORT).show()
                 invalidateOptionsMenu()
             }
         }
@@ -73,7 +72,7 @@ class DetailsActivity : BaseActivity() {
         currentDish?.let { dish ->
             val price: Float = dish.prices.first().price.toFloat()
             val totalPrice = price * count
-            binding.addToCart.text = "${getString(R.string.total)} $totalPrice €"
+            binding.totalPrice.text = "$totalPrice €"
         }
     }
 }

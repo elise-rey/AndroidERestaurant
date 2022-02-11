@@ -5,21 +5,13 @@ import com.google.gson.GsonBuilder
 import fr.isen.rey.androiderestaurant.network.Dish
 import java.io.File
 import java.io.Serializable
-import java.lang.reflect.GenericSignatureFormatError
 
 class Cart(val items: MutableList<CartItem>): Serializable {
-    private val itemsCount: Int
+    private var itemsCount: Int = 0
         get() {
             return items.map {
                 it.quantity
             }.reduceOrNull { acc, i -> acc + i } ?: 0
-        }
-
-    private val totalPrice: Float
-        get() {
-            return items.map {
-                it.quantity * it.dish.prices.first().price.toFloat()
-            }.reduceOrNull { acc, f -> acc + f } ?: 0f
         }
 
     fun addItem(item: Dish, quantity: Int) {
@@ -36,15 +28,14 @@ class Cart(val items: MutableList<CartItem>): Serializable {
         items.remove(cartItem)
     }
 
-    fun save(context: Context) {
-        val jsonFile = File(context.cacheDir.absolutePath + CART_FILE)
-        val json = GsonBuilder().create().toJson(this)
-        jsonFile.writeText(json)
-        updateCount(context)
-    }
-
     fun clear() {
         items.removeAll{true}
+    }
+
+    fun save(context: Context) {
+        val jsonFile = File(context.cacheDir.absolutePath + CART_FILE)
+        jsonFile.writeText(toJson())
+        updateCount(context)
     }
 
     fun toJson(): String {
@@ -75,4 +66,4 @@ class Cart(val items: MutableList<CartItem>): Serializable {
     }
 }
 
-class CartItem(val dish: Dish, var quantity: Int): Serializable { }
+class CartItem(val dish: Dish, var quantity: Int): Serializable {}

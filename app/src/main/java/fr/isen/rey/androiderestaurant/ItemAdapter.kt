@@ -24,7 +24,7 @@ class ItemAdapter(private val listItem: List<Dish>, private val itemClickListene
         return ItemViewHolder(binding)
     }
 
-    @SuppressLint("SetTextI18n")
+    @SuppressLint("SetTextI18n", "ResourceType")
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         val item = listItem[position]
         holder.foodItem.text = item.name
@@ -32,7 +32,7 @@ class ItemAdapter(private val listItem: List<Dish>, private val itemClickListene
         Picasso
             .get()
             .load(item.getThumbnailURL())
-            .placeholder(R.drawable.no_photo)
+            .placeholder(R.drawable.ic_image_not_supported)
             .into(holder.imageItem)
         holder.layout.setOnClickListener {
             itemClickListener.invoke(item)

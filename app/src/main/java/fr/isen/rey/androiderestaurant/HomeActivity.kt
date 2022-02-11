@@ -1,11 +1,12 @@
 package fr.isen.rey.androiderestaurant
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
-import android.util.Log
+import androidx.appcompat.app.AppCompatActivity
 import fr.isen.rey.androiderestaurant.databinding.ActivityHomeBinding
 
-class HomeActivity : BaseActivity() {
+class HomeActivity : AppCompatActivity() {
     lateinit var binding: ActivityHomeBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -14,36 +15,17 @@ class HomeActivity : BaseActivity() {
         setContentView(binding.root)
 
         listenClick()
-
-        Log.d("life cycle", "HomeActivity onCreate")
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        Log.d("life cycle", "HomeActivity onDestroy")
-    }
-
-    override fun onRestart() {
-        super.onRestart()
-        Log.d("life cycle", "HomeActivity onRestart")
-    }
-
-    override fun onStop() {
-        super.onStop()
-        Log.d("life cycle", "HomeActivity onStop")
+        //showMap()
     }
 
     private fun listenClick() {
         binding.starter.setOnClickListener {
-            //Toast.makeText(this, R.string.toastStarter, Toast.LENGTH_SHORT).show()startActivity(Intent(this, ListActivity.kt::class.java))
             showList(LunchType.STARTER)
         }
         binding.main.setOnClickListener {
-            //Toast.makeText(this, R.string.toastMain, Toast.LENGTH_SHORT).show()
             showList(LunchType.MAIN)
         }
         binding.dessert.setOnClickListener {
-            //Toast.makeText(this, R.string.toastDessert, Toast.LENGTH_SHORT).show()
             showList(LunchType.DESSERT)
         }
     }
@@ -52,6 +34,13 @@ class HomeActivity : BaseActivity() {
         val intent = Intent(this, ListActivity::class.java)
         intent.putExtra(CategoryType, item)
         startActivity(intent)
+    }
+
+    private fun showMap() {
+        val urlIntent = Uri.parse("https://www.google.com/maps/place/ISEN+Yncr%C3%A9a+M%C3%A9diterran%C3%A9e+-+Campus+de+Toulon/@43.1206241,5.9374718,17z/data=!3m1!4b1!4m5!3m4!1s0x12c91b0a44cc26c9:0x30eab5841931dc29!8m2!3d43.1206202!4d5.9396605")
+        val mapIntent = Intent(Intent.ACTION_VIEW, urlIntent)
+        mapIntent.setPackage("com.google.android.apps.maps")
+        startActivity(mapIntent)
     }
 
     companion object {
