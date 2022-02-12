@@ -73,7 +73,8 @@ class ListActivity : BaseActivity() {
         val url = NetworkConstants.BASE_URL + NetworkConstants.MENU
         val parameters = JSONObject()
         parameters.put(NetworkConstants.KEY_SHOP, NetworkConstants.SHOP)
-        val request = JsonObjectRequest(Request.Method.POST,
+        val request = JsonObjectRequest(
+            Request.Method.POST,
             url,
             parameters,
             {

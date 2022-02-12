@@ -13,6 +13,9 @@
         android:theme="@style/Theme.AndroidERestaurant"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".HistoricActivity"
+            android:exported="false" />
+        <activity
             android:name=".cart.EmptyCartActivity"
             android:exported="false" />
         <activity

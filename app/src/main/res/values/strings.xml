@@ -5,6 +5,8 @@
     <string name="starter">Entrées</string>
     <string name="main">Plats</string>
     <string name="dessert">Desserts</string>
+    <string name="map">Où nous retrouver ?</string>
+    <string name="cart">Mon panier</string>
 
     <!--Details Page-->
     <string name="total">Ajouter au panier</string>

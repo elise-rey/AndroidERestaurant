@@ -1,12 +1,13 @@
 package fr.isen.rey.androiderestaurant
 
-import android.R
-import android.app.ActivityOptions
+import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.view.Window
 import androidx.appcompat.app.AppCompatActivity
+import fr.isen.rey.androiderestaurant.cart.Cart
+import fr.isen.rey.androiderestaurant.cart.CartActivity
+import fr.isen.rey.androiderestaurant.cart.EmptyCartActivity
 import fr.isen.rey.androiderestaurant.databinding.ActivityHomeBinding
 
 class HomeActivity : AppCompatActivity() {
@@ -18,7 +19,6 @@ class HomeActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         listenClick()
-        //showMap()
     }
 
     private fun listenClick() {
@@ -30,6 +30,20 @@ class HomeActivity : AppCompatActivity() {
         }
         binding.dessert.setOnClickListener {
             showList(LunchType.DESSERT)
+        }
+        val count = getItemsCount()
+        binding.cart.setOnClickListener {
+            if (count > 0) {
+                val intent = Intent(this, CartActivity::class.java)
+                startActivity(intent)
+            }
+            else if (count == 0) {
+                val intent = Intent(this, EmptyCartActivity::class.java)
+                startActivity(intent)
+            }
+        }
+        binding.map.setOnClickListener {
+            showMap()
         }
     }
 
@@ -44,6 +58,11 @@ class HomeActivity : AppCompatActivity() {
         val mapIntent = Intent(Intent.ACTION_VIEW, urlIntent)
         mapIntent.setPackage("com.google.android.apps.maps")
         startActivity(mapIntent)
+    }
+
+    private fun getItemsCount(): Int {
+        val sharedPreferences = getSharedPreferences(Cart.USER_PREFERENCES_NAME, Context.MODE_PRIVATE)
+        return sharedPreferences.getInt(Cart.ITEMS_COUNT, 0)
     }
 
     companion object {
