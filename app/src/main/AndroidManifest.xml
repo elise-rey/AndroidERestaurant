@@ -24,9 +24,6 @@
             android:name=".user.UserActivity"
             android:exported="false" />
         <activity
-            android:name=".cart.CartActivity"
-            android:exported="false" />
-        <activity
             android:name=".detail.DetailsActivity"
             android:exported="false" />
         <activity
