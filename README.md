@@ -1,5 +1,6 @@
 # AndroidERestaurant
 This repository contains the 'Android e-Restaurant' project.
+
 The Android e-Restaurant app is working with both light and dark mode on your emulator or Android smartphone.
 
 ## Getting Started
