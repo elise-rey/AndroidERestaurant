@@ -19,7 +19,7 @@ import fr.isen.rey.androiderestaurant.user.UserActivity
 import org.json.JSONObject
 
 class CartActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityCartBinding
+    lateinit var binding: ActivityCartBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityCartBinding.inflate(layoutInflater)

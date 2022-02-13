@@ -2,7 +2,6 @@ package fr.isen.rey.androiderestaurant.user
 
 import android.app.Activity
 import android.content.Context
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
@@ -74,10 +73,10 @@ class UserActivity : BaseActivity(), UserActivityFragmentInteraction {
     ) {
         val queue = Volley.newRequestQueue(this)
         var url = NetworkConstants.BASE_URL
-        if (isFromLogin) {
-            url += NetworkConstants.LOGIN
+        url += if (isFromLogin) {
+            NetworkConstants.LOGIN
         } else {
-            url += NetworkConstants.REGISTER
+            NetworkConstants.REGISTER
         }
 
         val parameters = JSONObject()

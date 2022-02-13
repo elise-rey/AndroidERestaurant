@@ -12,8 +12,8 @@ import fr.isen.rey.androiderestaurant.network.Dish
 
 class DetailsActivity : BaseActivity() {
     private lateinit var binding: ActivityDetailsBinding
-    var currentDish: Dish? = null
-    var count: Float = 1f
+    private var currentDish: Dish? = null
+    private var count: Float = 1f
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,7 +35,7 @@ class DetailsActivity : BaseActivity() {
 
         binding.nbItem.text = count.toInt().toString()
         binding.totalPrice.text = "${currentDish?.prices?.first()?.price?.toFloat()} €"
-        binding.addToCart.text = "${getString(R.string.total)}"
+        binding.addToCart.text = getString(R.string.total)
     }
 
     private fun incrementNbItem() {

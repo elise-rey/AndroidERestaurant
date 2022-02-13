@@ -34,7 +34,7 @@ class CartAdapter(private val items: List<CartItem>, private val deleteClickList
 
         holder.dishName.text = cartItem.dish.name
         holder.price.text = "${cartItem.dish.prices.first().price} €"
-        holder.quantity.text = "${context?.getString(R.string.quantity)} ${cartItem.quantity}"
+        holder.quantity.text = "${context.getString(R.string.quantity)} ${cartItem.quantity}"
         holder.delete.setOnClickListener {
             deleteClickListener.invoke(cartItem)
         }

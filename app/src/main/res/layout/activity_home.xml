@@ -11,6 +11,7 @@
         style="@style/backCard"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:animateLayoutChanges="true"
         app:cardCornerRadius="24dp"
         app:cardElevation="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -24,10 +25,10 @@
 
             <TextView
                 android:id="@+id/welcome"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="16dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginBottom="24dp"
                 android:fontFamily="@font/poppins_medium"
@@ -38,124 +39,171 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.10"
+                app:layout_constraintVertical_bias="0.0"
                 tools:ignore="TextContrastCheck" />
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/cart"
+                android:id="@+id/bottomCard"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="32dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="32dp"
-                android:layout_marginBottom="8dp"
-                android:foreground="?attr/selectableItemBackground"
-                app:cardBackgroundColor="@color/teal_500"
-                app:cardCornerRadius="8dp"
-                app:cardElevation="4dp"
+                android:layout_height="0dp"
+                android:layout_marginTop="32dp"
+                app:cardBackgroundColor="@color/teal_transparent"
+                app:cardCornerRadius="24dp"
+                app:cardElevation="0dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.75">
+                app:layout_constraintTop_toBottomOf="@+id/dessert">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
-                    <ImageView
-                        android:id="@+id/imageView6"
-                        android:layout_width="wrap_content"
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cart"
+                        style="@style/homeCardButtons"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="8dp"
-                        android:layout_marginTop="8dp"
+                        android:layout_marginStart="32dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="32dp"
                         android:layout_marginBottom="8dp"
-                        android:contentDescription="@string/image"
+                        android:foreground="?attr/selectableItemBackground"
+                        app:cardCornerRadius="16dp"
+                        app:cardElevation="4dp"
+                        app:layout_constraintBottom_toTopOf="@+id/map"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <androidx.cardview.widget.CardView
+                                android:id="@+id/cardView"
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:layout_marginStart="8dp"
+                                android:layout_marginTop="8dp"
+                                android:layout_marginEnd="8dp"
+                                android:layout_marginBottom="8dp"
+                                android:clipToPadding="false"
+                                app:cardBackgroundColor="@color/teal_500"
+                                app:cardCornerRadius="12dp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintHorizontal_bias="0.0"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent">
+
+                                <ImageView
+                                    android:id="@+id/cartImageView"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="8dp"
+                                    android:layout_marginTop="8dp"
+                                    android:layout_marginBottom="8dp"
+                                    android:contentDescription="@string/image"
+                                    app:srcCompat="@drawable/ic_cart"
+                                    tools:ignore="ImageContrastCheck" />
+                            </androidx.cardview.widget.CardView>
+
+                            <TextView
+                                android:id="@+id/cartText"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="16dp"
+                                android:layout_marginTop="8dp"
+                                android:layout_marginEnd="8dp"
+                                android:layout_marginBottom="8dp"
+                                android:fontFamily="@font/poppins"
+                                android:text="@string/cart"
+                                android:textColor="@color/teal_500"
+                                android:textSize="20sp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintHorizontal_bias="0.0"
+                                app:layout_constraintStart_toEndOf="@+id/cardView"
+                                app:layout_constraintTop_toTopOf="parent"
+                                tools:ignore="TextContrastCheck" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/map"
+                        style="@style/homeCardButtons"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="32dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="32dp"
+                        android:layout_marginBottom="64dp"
+                        android:foreground="?attr/selectableItemBackground"
+                        app:cardCornerRadius="16dp"
+                        app:cardElevation="4dp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.27"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:srcCompat="@drawable/ic_cart"
-                        tools:ignore="ImageContrastCheck" />
+                        app:layout_constraintVertical_bias="1.0">
 
-                    <TextView
-                        android:id="@+id/cartText"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginEnd="8dp"
-                        android:layout_marginBottom="8dp"
-                        android:fontFamily="@font/poppins"
-                        android:text="@string/cart"
-                        android:textColor="@color/white"
-                        android:textSize="20sp"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.10"
-                        app:layout_constraintStart_toEndOf="@+id/imageView6"
-                        app:layout_constraintTop_toTopOf="parent"
-                        tools:ignore="TextContrastCheck" />
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <androidx.cardview.widget.CardView
+                                android:id="@+id/cardView2"
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:layout_marginStart="8dp"
+                                android:layout_marginTop="8dp"
+                                android:layout_marginEnd="8dp"
+                                android:layout_marginBottom="8dp"
+                                app:cardBackgroundColor="@color/teal_500"
+                                app:cardCornerRadius="12dp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintHorizontal_bias="0.0"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent">
+
+                                <ImageView
+                                    android:id="@+id/mapImageView"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="8dp"
+                                    android:layout_marginTop="8dp"
+                                    android:layout_marginBottom="8dp"
+                                    android:contentDescription="@string/image"
+                                    app:srcCompat="@drawable/ic_location"
+                                    tools:ignore="ImageContrastCheck" />
+                            </androidx.cardview.widget.CardView>
+
+                            <TextView
+                                android:id="@+id/mapText"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="16dp"
+                                android:layout_marginTop="8dp"
+                                android:layout_marginEnd="8dp"
+                                android:layout_marginBottom="8dp"
+                                android:fontFamily="@font/poppins"
+                                android:text="@string/map"
+                                android:textAlignment="viewStart"
+                                android:textColor="@color/teal_500"
+                                android:textSize="20sp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintHorizontal_bias="0.0"
+                                app:layout_constraintStart_toEndOf="@+id/cardView2"
+                                app:layout_constraintTop_toTopOf="parent"
+                                tools:ignore="TextContrastCheck" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    </androidx.cardview.widget.CardView>
+
                 </androidx.constraintlayout.widget.ConstraintLayout>
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/map"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="32dp"
-                android:layout_marginEnd="32dp"
-                android:foreground="?attr/selectableItemBackground"
-                app:cardBackgroundColor="@color/teal_500"
-                app:cardCornerRadius="8dp"
-                app:cardElevation="4dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.85">
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <ImageView
-                        android:id="@+id/mapImage"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="8dp"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginBottom="8dp"
-                        android:contentDescription="@string/image"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.15"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:srcCompat="@drawable/ic_location"
-                        tools:ignore="ImageContrastCheck" />
-
-                    <TextView
-                        android:id="@+id/mapText"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginEnd="8dp"
-                        android:layout_marginBottom="8dp"
-                        android:fontFamily="@font/poppins"
-                        android:text="@string/map"
-                        android:textAlignment="viewStart"
-                        android:textColor="@color/white"
-                        android:textSize="20sp"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.1"
-                        app:layout_constraintStart_toEndOf="@+id/mapImage"
-                        app:layout_constraintTop_toTopOf="parent"
-                        tools:ignore="TextContrastCheck" />
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
             </androidx.cardview.widget.CardView>
 
             <Button
@@ -181,7 +229,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.3"
+                app:layout_constraintVertical_bias="0.25"
                 tools:ignore="TextContrastCheck" />
 
             <Button
@@ -193,7 +241,7 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
-                android:layout_marginBottom="8dp"
+                android:layout_marginBottom="24dp"
                 android:fontFamily="@font/poppins"
                 android:paddingLeft="16dp"
                 android:paddingRight="16dp"
@@ -207,7 +255,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.45"
+                app:layout_constraintVertical_bias="0.4"
                 tools:ignore="TextContrastCheck" />
 
             <Button
@@ -217,7 +265,9 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
                 android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
+                android:layout_marginBottom="24dp"
                 android:fontFamily="@font/poppins"
                 android:paddingLeft="16dp"
                 android:paddingRight="16dp"
@@ -231,7 +281,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.6"
+                app:layout_constraintVertical_bias="0.55"
                 app:strokeColor="#000000"
                 tools:ignore="TextContrastCheck" />
 
