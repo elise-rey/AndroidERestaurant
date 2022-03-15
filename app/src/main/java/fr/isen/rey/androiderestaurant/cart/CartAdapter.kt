@@ -25,7 +25,7 @@ class CartAdapter(private val items: List<CartItem>, private val deleteClickList
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CartViewHolder {
         context = parent.context
-        return CartViewHolder(CellCartBinding.inflate(LayoutInflater.from(parent.context), parent, false))
+        return CartViewHolder(CellCartBinding.inflate(LayoutInflater.from(context), parent, false))
     }
 
     @SuppressLint("SetTextI18n")
